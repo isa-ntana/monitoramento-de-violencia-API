@@ -1,5 +1,7 @@
 package br.com.zup.monitoramento_de_violencia_API.domain.models;
 
+import java.util.List;
+
 public class Vitima {
     private Long id;
     private String nome;
@@ -7,6 +9,7 @@ public class Vitima {
     private String genero;
     private String raca;
     private String religiao;
+    private List<Incidente> incidentes;
 
     public Vitima(Long id, String nome, int idade, String genero, String raca, String religiao) {
         this.id = id;
@@ -63,5 +66,13 @@ public class Vitima {
 
     public void setReligiao(String religiao) {
         this.religiao = religiao;
+    }
+
+    public List<Incidente> getIncidentes() {
+        return incidentes;
+    }
+
+    public void setIncidentes(List<Incidente> incidentes) {
+        this.incidentes = incidentes;
     }
 }

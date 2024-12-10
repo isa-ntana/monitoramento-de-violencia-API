@@ -5,13 +5,17 @@ import java.util.Map;
 public class Relatorio {
     private Map<String, Double> distribuicaoPorcentagemTipoIncidente;
     private Map<String, Long> distribuicaoRacaVitima;
-    private Map<String, Long> distribuicaoReligiaoVitima;
+    private Double porcentagemVitimiasNegras;
+    private Map<String, Long> distribuicaoReligiaoMatrizAfricana;
+    private Double porcentagemReligiaoMatrizAfricana;
     private Long totalIncidentes;
 
-    public Relatorio(Map<String, Double> distribuicaoPorcentagemTipoIncidente, Map<String, Long> distribuicaoRacaVitima, Map<String, Long> distribuicaoReligiaoVitima, Long totalIncidentes) {
+    public Relatorio(Map<String, Double> distribuicaoPorcentagemTipoIncidente, Map<String, Long> distribuicaoRacaVitima, Double porcentagemVitimiasNegras, Map<String, Long> distribuicaoReligiaoMatrizAfricana, Double porcentagemReligiaoMatrizAfricana, Long totalIncidentes) {
         this.distribuicaoPorcentagemTipoIncidente = distribuicaoPorcentagemTipoIncidente;
         this.distribuicaoRacaVitima = distribuicaoRacaVitima;
-        this.distribuicaoReligiaoVitima = distribuicaoReligiaoVitima;
+        this.porcentagemVitimiasNegras = porcentagemVitimiasNegras;
+        this.distribuicaoReligiaoMatrizAfricana = distribuicaoReligiaoMatrizAfricana;
+        this.porcentagemReligiaoMatrizAfricana = porcentagemReligiaoMatrizAfricana;
         this.totalIncidentes = totalIncidentes;
     }
 
@@ -31,12 +35,28 @@ public class Relatorio {
         this.distribuicaoRacaVitima = distribuicaoRacaVitima;
     }
 
-    public Map<String, Long> getDistribuicaoReligiaoVitima() {
-        return distribuicaoReligiaoVitima;
+    public Double getPorcentagemVitimiasNegras() {
+        return porcentagemVitimiasNegras;
     }
 
-    public void setDistribuicaoReligiaoVitima(Map<String, Long> distribuicaoReligiaoVitima) {
-        this.distribuicaoReligiaoVitima = distribuicaoReligiaoVitima;
+    public void setPorcentagemVitimiasNegras(Double porcentagemVitimiasNegras) {
+        this.porcentagemVitimiasNegras = porcentagemVitimiasNegras;
+    }
+
+    public Map<String, Long> getDistribuicaoReligiaoMatrizAfricana() {
+        return distribuicaoReligiaoMatrizAfricana;
+    }
+
+    public void setDistribuicaoReligiaoMatrizAfricana(Map<String, Long> distribuicaoReligiaoMatrizAfricana) {
+        this.distribuicaoReligiaoMatrizAfricana = distribuicaoReligiaoMatrizAfricana;
+    }
+
+    public Double getPorcentagemReligiaoMatrizAfricana() {
+        return porcentagemReligiaoMatrizAfricana;
+    }
+
+    public void setPorcentagemReligiaoMatrizAfricana(Double porcentagemReligiaoMatrizAfricana) {
+        this.porcentagemReligiaoMatrizAfricana = porcentagemReligiaoMatrizAfricana;
     }
 
     public Long getTotalIncidentes() {

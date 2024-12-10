@@ -10,7 +10,7 @@ public class Incidente {
     private String local;
     private LocalDate dataIncidente;
 
-    public Incidente(Long id, Vitima vitima, String nomeVitima, String tipoIncidente, String descricao, String local, LocalDate dataIncidente) {
+    public Incidente(Long id, Vitima vitima, String tipoIncidente, String descricao, String local, LocalDate dataIncidente) {
         this.id = id;
         this.vitima = vitima;
         this.tipoIncidente = tipoIncidente;
