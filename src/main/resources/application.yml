@@ -1,1 +1,3 @@
-spring.application.name=monitoramento-de-violencia-API
+spring:
+  application:
+    name: monitoramento-de-violencia-API
