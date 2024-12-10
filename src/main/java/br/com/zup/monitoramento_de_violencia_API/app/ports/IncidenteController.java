@@ -1,6 +1,6 @@
-package br.com.zup.monitoramento_de_violencia_API.app.adapters;
+package br.com.zup.monitoramento_de_violencia_API.app.ports;
 
-import br.com.zup.monitoramento_de_violencia_API.app.service.IncidenteService;
+import br.com.zup.monitoramento_de_violencia_API.app.adapters.IncidenteService;
 import br.com.zup.monitoramento_de_violencia_API.domain.models.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.http.*;

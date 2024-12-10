@@ -1,4 +1,4 @@
-package br.com.zup.monitoramento_de_violencia_API.app.service;
+package br.com.zup.monitoramento_de_violencia_API.app.adapters;
 
 import br.com.zup.monitoramento_de_violencia_API.app.infra.implement.IncidenteRepositoryImplement;
 import br.com.zup.monitoramento_de_violencia_API.domain.dtos.RelatorioDTO;

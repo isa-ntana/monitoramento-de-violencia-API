@@ -1,6 +1,6 @@
-package br.com.zup.monitoramento_de_violencia_API.app.adapters;
+package br.com.zup.monitoramento_de_violencia_API.app.ports;
 
-import br.com.zup.monitoramento_de_violencia_API.app.service.RelatorioService;
+import br.com.zup.monitoramento_de_violencia_API.app.adapters.RelatorioService;
 import br.com.zup.monitoramento_de_violencia_API.domain.dtos.RelatorioDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

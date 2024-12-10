@@ -1,7 +1,7 @@
 package br.com.zup.monitoramento_de_violencia_API.RelatorioTestes;
 
-import br.com.zup.monitoramento_de_violencia_API.app.adapters.RelatorioController;
-import br.com.zup.monitoramento_de_violencia_API.app.service.RelatorioService;
+import br.com.zup.monitoramento_de_violencia_API.app.ports.RelatorioController;
+import br.com.zup.monitoramento_de_violencia_API.app.adapters.RelatorioService;
 import br.com.zup.monitoramento_de_violencia_API.domain.dtos.RelatorioDTO;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;

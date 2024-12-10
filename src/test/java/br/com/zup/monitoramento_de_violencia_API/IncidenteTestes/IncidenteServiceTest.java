@@ -3,7 +3,7 @@ package br.com.zup.monitoramento_de_violencia_API.IncidenteTestes;
 import br.com.zup.monitoramento_de_violencia_API.app.infra.IncidenteJpaRepository;
 import br.com.zup.monitoramento_de_violencia_API.domain.models.Incidente;
 import br.com.zup.monitoramento_de_violencia_API.domain.models.Vitima;
-import br.com.zup.monitoramento_de_violencia_API.app.service.IncidenteService;
+import br.com.zup.monitoramento_de_violencia_API.app.adapters.IncidenteService;
 import org.junit.jupiter.api.*;
 
 import java.time.LocalDate;
