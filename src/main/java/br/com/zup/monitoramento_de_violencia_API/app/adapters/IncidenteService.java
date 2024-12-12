@@ -5,6 +5,7 @@ import br.com.zup.monitoramento_de_violencia_API.domain.models.Incidente;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class IncidenteService {
@@ -26,10 +27,11 @@ public class IncidenteService {
         return incidenteJpaRepository.findByVitimaNome(nomeVitima);
     }
 
-    public void deletarIncidente(Long id) {
-        Incidente incidente = incidenteJpaRepository.findById(id).orElseThrow(()
-                -> new RuntimeException("Incidente não encontrado com o ID: " + id));
-
-        incidenteJpaRepository.delete(incidente);
+    public void deletarIncidente(String id) {
+        Optional<Incidente> incidenteOptional = incidenteJpaRepository.findById(id);
+        if (incidenteOptional.isEmpty()) {
+            throw new RuntimeException("Incidente não encontrado com o ID: " + id);
+        }
+        incidenteJpaRepository.delete(incidenteOptional.get());
     }
 }

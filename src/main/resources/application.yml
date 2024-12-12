@@ -1,3 +1,13 @@
 spring:
   application:
     name: monitoramento-de-violencia-API
+  datasource:
+    url: jdbc:postgresql://localhost:5432/dados_user
+    username: monitorador
+    password: lugar_seguro
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true

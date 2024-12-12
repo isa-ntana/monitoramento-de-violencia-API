@@ -31,14 +31,12 @@ public class IncidenteControllerTest {
     @BeforeEach
     void setUp() {
         Vitima vitima = new Vitima(
-                1L,
                 "Maria Oliveira",
                 25,
                 "Feminino",
                 "Negra",
                 "Evangélica");
         incidente = new Incidente(
-                1L,
                 vitima,
                 "Incidente Teste",
                 "Descrição do incidente",
@@ -60,9 +58,9 @@ public class IncidenteControllerTest {
 
     @Test
     void testarDeletarIncidente() {
-        doNothing().when(incidenteService).deletarIncidente(1L);
+        doNothing().when(incidenteService).deletarIncidente(String.valueOf(1L));
 
-        ResponseEntity<?> response = incidenteController.deleteIncidenteById(1L);
+        ResponseEntity<?> response = incidenteController.deleteIncidenteById(String.valueOf(1L));
         assertEquals(HttpStatus.NO_CONTENT, response.getStatusCode());
         assertEquals("Incidente deletado com sucesso", response.getBody());
     }
@@ -70,9 +68,9 @@ public class IncidenteControllerTest {
     @Test
     void testarDeletarCasoNaoEncontrado() {
         doThrow(new RuntimeException("Incidente não encontrado com o ID fornecido"))
-                .when(incidenteService).deletarIncidente(1L);
+                .when(incidenteService).deletarIncidente(String.valueOf(1L));
 
-        ResponseEntity<?> response = incidenteController.deleteIncidenteById(1L);
+        ResponseEntity<?> response = incidenteController.deleteIncidenteById(String.valueOf(1L));
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
         assertEquals("Incidente não encontrado com o ID fornecido", response.getBody());
     }

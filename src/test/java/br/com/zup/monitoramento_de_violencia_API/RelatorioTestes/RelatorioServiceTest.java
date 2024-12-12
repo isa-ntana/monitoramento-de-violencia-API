@@ -32,13 +32,13 @@ public class RelatorioServiceTest {
 
     @BeforeEach
     void setUp() {
-        Vitima vitima1 = new Vitima(1L, "Maria Oliveira", 25, "Feminino", "Negra", "Evangélica");
-        Vitima vitima2 = new Vitima(2L, "João Silva", 30, "Masculino", "Branca", "Católica");
-        Vitima vitima3 = new Vitima(3L, "Ana Souza", 22, "Feminino", "Parda", "Religião de matriz africana");
+        Vitima vitima1 = new Vitima( "Maria Oliveira", 25, "Feminino", "Negra", "Evangélica");
+        Vitima vitima2 = new Vitima( "João Silva", 30, "Masculino", "Branca", "Católica");
+        Vitima vitima3 = new Vitima( "Ana Souza", 22, "Feminino", "Parda", "Religião de matriz africana");
 
-        Incidente incidente1 = new Incidente(1L, vitima1, "Violência Racial", "Descrição", "Rua X, 123", LocalDate.now());
-        Incidente incidente2 = new Incidente(2L, vitima2, "Violência Religiosa", "Descrição", "Rua Y, 456", LocalDate.now());
-        Incidente incidente3 = new Incidente(3L, vitima3, "Violência Racial", "Descrição", "Rua Z, 789", LocalDate.now());
+        Incidente incidente1 = new Incidente( vitima1, "Violência Racial", "Descrição", "Rua X, 123", LocalDate.now());
+        Incidente incidente2 = new Incidente( vitima2, "Violência Religiosa", "Descrição", "Rua Y, 456", LocalDate.now());
+        Incidente incidente3 = new Incidente( vitima3, "Violência Racial", "Descrição", "Rua Z, 789", LocalDate.now());
 
         incidentes = List.of(incidente1, incidente2, incidente3);
     }

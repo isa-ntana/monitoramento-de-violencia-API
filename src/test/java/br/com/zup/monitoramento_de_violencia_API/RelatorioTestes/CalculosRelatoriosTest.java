@@ -29,13 +29,13 @@ public class CalculosRelatoriosTest {
 
     @BeforeEach
     void setUp() {
-        Vitima vitima1 = new Vitima(1L, "João", 30, "Masculino", "negro", "umbanda");
-        Vitima vitima2 = new Vitima(2L, "Maria", 25, "Feminino", "pardo", "candomblé");
-        Vitima vitima3 = new Vitima(3L, "Carlos", 40, "Masculino", "branco", "católica");
+        Vitima vitima1 = new Vitima("João",30, "masculino", "preto", "umbanda");
+        Vitima vitima2 = new Vitima( "Maria", 25, "Feminino", "pardo", "candomblé");
+        Vitima vitima3 = new Vitima( "Carlos", 40, "Masculino", "branco", "católica");
 
-        Incidente incidente1 = new Incidente(1L, vitima1, "Violência racial", "Descrição 1", "Local 1", LocalDate.now());
-        Incidente incidente2 = new Incidente(2L, vitima2, "Violência religiosa", "Descrição 2", "Local 2", LocalDate.now());
-        Incidente incidente3 = new Incidente(3L, vitima3, "Violência racial", "Descrição 3", "Local 3", LocalDate.now());
+        Incidente incidente1 = new Incidente( vitima1, "Violência racial", "Descrição 1", "Local 1", LocalDate.now());
+        Incidente incidente2 = new Incidente( vitima2, "Violência religiosa", "Descrição 2", "Local 2", LocalDate.now());
+        Incidente incidente3 = new Incidente( vitima3, "Violência racial", "Descrição 3", "Local 3", LocalDate.now());
 
         incidentes = Arrays.asList(incidente1, incidente2, incidente3);
     }

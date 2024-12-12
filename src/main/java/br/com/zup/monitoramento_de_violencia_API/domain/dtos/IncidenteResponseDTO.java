@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class IncidenteResponseDTO {
     //o retorno do incidente
-    private Long idVitima;
+    private String idVitima;
     private String nomeVitima;
     private int idade;
     private String genero;
@@ -16,7 +16,7 @@ public class IncidenteResponseDTO {
     private String localIncidente;
     private String descricaoIncidente;
 
-    public IncidenteResponseDTO(Long idVitima, String nomeVitima, int idade, String genero, String endereco, String raca, String religiao, String tipoIncidente, LocalDate dataIncidente, String localIncidente, String descricaoIncidente) {
+    public IncidenteResponseDTO(String idVitima, String nomeVitima, int idade, String genero, String endereco, String raca, String religiao, String tipoIncidente, LocalDate dataIncidente, String localIncidente, String descricaoIncidente) {
         this.idVitima = idVitima;
         this.nomeVitima = nomeVitima;
         this.idade = idade;
@@ -30,11 +30,11 @@ public class IncidenteResponseDTO {
         this.descricaoIncidente = descricaoIncidente;
     }
 
-    public long getIdVitima() {
+    public String getIdVitima() {
         return idVitima;
     }
 
-    public void setIdVitima(long idVitima) {
+    public void setIdVitima(String idVitima) {
         this.idVitima = idVitima;
     }
 
