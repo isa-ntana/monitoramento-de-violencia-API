@@ -2,6 +2,7 @@ package br.com.zup.monitoramento_de_violencia_API.RelatorioTestes;
 
 import br.com.zup.monitoramento_de_violencia_API.app.adapters.RelatorioService;
 import br.com.zup.monitoramento_de_violencia_API.app.infra.implement.IncidenteRepositoryImplement;
+import br.com.zup.monitoramento_de_violencia_API.app.modelsapp.VitimaEntity;
 import br.com.zup.monitoramento_de_violencia_API.domain.dtos.RelatorioDTO;
 import br.com.zup.monitoramento_de_violencia_API.domain.models.Incidente;
 import br.com.zup.monitoramento_de_violencia_API.domain.models.Vitima;
@@ -32,9 +33,10 @@ public class RelatorioServiceTest {
 
     @BeforeEach
     void setUp() {
-        Vitima vitima1 = new Vitima( "Maria Oliveira", 25, "Feminino", "Negra", "Evangélica");
-        Vitima vitima2 = new Vitima( "João Silva", 30, "Masculino", "Branca", "Católica");
-        Vitima vitima3 = new Vitima( "Ana Souza", 22, "Feminino", "Parda", "Religião de matriz africana");
+        VitimaEntity vitimaEntity = new VitimaEntity();
+        Vitima vitima1 = new Vitima( "Maria Oliveira", vitimaEntity.getNome(), "Feminino", "Negra", "Evangélica");
+        Vitima vitima2 = new Vitima( "João Silva", vitimaEntity.getNome(), "Masculino", "Branca", "Católica");
+        Vitima vitima3 = new Vitima( "Ana Souza", vitimaEntity.getNome(), "Feminino", "Parda", "Religião de matriz africana");
 
         Incidente incidente1 = new Incidente( vitima1, "Violência Racial", "Descrição", "Rua X, 123", LocalDate.now());
         Incidente incidente2 = new Incidente( vitima2, "Violência Religiosa", "Descrição", "Rua Y, 456", LocalDate.now());

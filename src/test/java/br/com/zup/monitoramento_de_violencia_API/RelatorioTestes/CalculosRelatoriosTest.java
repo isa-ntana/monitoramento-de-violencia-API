@@ -1,6 +1,7 @@
 package br.com.zup.monitoramento_de_violencia_API.RelatorioTestes;
 
 import br.com.zup.monitoramento_de_violencia_API.app.infra.implement.IncidenteRepositoryImplement;
+import br.com.zup.monitoramento_de_violencia_API.app.modelsapp.VitimaEntity;
 import br.com.zup.monitoramento_de_violencia_API.domain.models.Incidente;
 import br.com.zup.monitoramento_de_violencia_API.domain.models.Relatorio;
 import br.com.zup.monitoramento_de_violencia_API.domain.models.Vitima;
@@ -29,9 +30,10 @@ public class CalculosRelatoriosTest {
 
     @BeforeEach
     void setUp() {
-        Vitima vitima1 = new Vitima("João",30, "masculino", "preto", "umbanda");
-        Vitima vitima2 = new Vitima( "Maria", 25, "Feminino", "pardo", "candomblé");
-        Vitima vitima3 = new Vitima( "Carlos", 40, "Masculino", "branco", "católica");
+        VitimaEntity vitimaEntity = new VitimaEntity();
+        Vitima vitima1 = new Vitima("João", vitimaEntity.getNome(), "masculino", "preto", "umbanda");
+        Vitima vitima2 = new Vitima( "Maria", vitimaEntity.getNome(), "Feminino", "pardo", "candomblé");
+        Vitima vitima3 = new Vitima( "Carlos", vitimaEntity.getNome(), "Masculino", "branco", "católica");
 
         Incidente incidente1 = new Incidente( vitima1, "Violência racial", "Descrição 1", "Local 1", LocalDate.now());
         Incidente incidente2 = new Incidente( vitima2, "Violência religiosa", "Descrição 2", "Local 2", LocalDate.now());

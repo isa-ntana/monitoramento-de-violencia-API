@@ -11,6 +11,8 @@ public class Incidente {
     private String local;
     private LocalDate dataIncidente;
 
+
+
     public Incidente( Vitima vitima, String tipoIncidente, String descricao, String local, LocalDate dataIncidente) {
         this.id = UUID.randomUUID().toString();
         this.vitima = vitima;
