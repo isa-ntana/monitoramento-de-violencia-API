@@ -3,7 +3,7 @@ package br.com.zup.monitoramento_de_violencia_API.domain.dtos;
 import java.time.LocalDate;
 
 public class RegistrarIncidenteDTO {
-    private Long idVitima;
+    private String idVitima;
     private String nomeVitima;
     private int idade;
     private String genero;
@@ -15,7 +15,7 @@ public class RegistrarIncidenteDTO {
     private String localIncidente;
     private String descricaoIncidente;
 
-    public RegistrarIncidenteDTO(Long idVitima, String nomeVitima, int idade, String genero, String endereco, String raca, String religiao, String tipoIncidente, LocalDate dataIncidente, String localIncidente, String descricaoIncidente) {
+    public RegistrarIncidenteDTO( String idVitima, String nomeVitima, int idade, String genero, String endereco, String raca, String religiao, String tipoIncidente, LocalDate dataIncidente, String localIncidente, String descricaoIncidente) {
         this.idVitima = idVitima;
         this.nomeVitima = nomeVitima;
         this.idade = idade;
@@ -29,11 +29,11 @@ public class RegistrarIncidenteDTO {
         this.descricaoIncidente = descricaoIncidente;
     }
 
-    public long getIdVitima() {
+    public String getIdVitima() {
         return idVitima;
     }
 
-    public void setIdVitima(long idVitima) {
+    public void setIdVitima(String idVitima) {
         this.idVitima = idVitima;
     }
 

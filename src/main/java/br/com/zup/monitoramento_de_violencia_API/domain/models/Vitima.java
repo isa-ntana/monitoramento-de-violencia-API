@@ -1,9 +1,10 @@
 package br.com.zup.monitoramento_de_violencia_API.domain.models;
 
 import java.util.List;
+import java.util.UUID;
 
 public class Vitima {
-    private Long id;
+    private String id;
     private String nome;
     private int idade;
     private String genero;
@@ -11,8 +12,8 @@ public class Vitima {
     private String religiao;
     private List<Incidente> incidentes;
 
-    public Vitima(Long id, String nome, int idade, String genero, String raca, String religiao) {
-        this.id = id;
+    public Vitima( String nome, int idade, String genero, String raca, String religiao) {
+        this.id = UUID.randomUUID().toString();
         this.nome = nome;
         this.idade = idade;
         this.genero = genero;
@@ -20,11 +21,11 @@ public class Vitima {
         this.religiao = religiao;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

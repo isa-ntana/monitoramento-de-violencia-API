@@ -1,17 +1,18 @@
 package br.com.zup.monitoramento_de_violencia_API.domain.models;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 public class Incidente {
-    private Long id;
+    private String id;
     private Vitima vitima;
     private String tipoIncidente;
     private String descricao;
     private String local;
     private LocalDate dataIncidente;
 
-    public Incidente(Long id, Vitima vitima, String tipoIncidente, String descricao, String local, LocalDate dataIncidente) {
-        this.id = id;
+    public Incidente( Vitima vitima, String tipoIncidente, String descricao, String local, LocalDate dataIncidente) {
+        this.id = UUID.randomUUID().toString();
         this.vitima = vitima;
         this.tipoIncidente = tipoIncidente;
         this.descricao = descricao;
@@ -19,11 +20,11 @@ public class Incidente {
         this.dataIncidente = dataIncidente;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

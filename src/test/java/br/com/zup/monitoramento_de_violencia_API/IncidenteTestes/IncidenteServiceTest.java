@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -29,16 +30,15 @@ public class IncidenteServiceTest {
         incidenteService = new IncidenteService(incidenteJpaRepository);
 
         vitima = new Vitima(
-                1L,
                 "Maria Oliveira",
                 25,
-                "Feminino",
-                "Negra",
-                "Evangélica"
+                "feminino",
+                "negra",
+                "SP"
         );
 
         incidente = new Incidente(
-                1L,
+
                 vitima,
                 "Incidente Teste",
                 "Descrição do incidente: agressão física com lesões leves.",
@@ -53,7 +53,8 @@ public class IncidenteServiceTest {
 
         Incidente incidenteSalvo = incidenteService.salvarIncidente(incidente);
         assertNotNull(incidenteSalvo);
-        assertEquals(1L, incidenteSalvo.getId());
+        assertNotNull(incidenteSalvo.getId());
+        assertTrue(incidenteSalvo.getId().matches("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"));
         assertEquals("Incidente Teste", incidenteSalvo.getTipoIncidente());
 
         verify(incidenteJpaRepository, times(1)).save(incidente);
@@ -61,7 +62,7 @@ public class IncidenteServiceTest {
 
     @Test
     void listarIncidentes() {
-        Incidente incidente2 = new Incidente(2L, vitima, "Incidente Teste 2", "Descrição do incidente 2", "Rua Y", LocalDate.of(2024, 12, 10));
+        Incidente incidente2 = new Incidente( vitima, "Incidente Teste 2", "Descrição do incidente 2", "Rua Y", LocalDate.of(2024, 12, 10));
 
         when(incidenteJpaRepository.findAll()).thenReturn(Arrays.asList(incidente, incidente2));
 
@@ -86,19 +87,26 @@ public class IncidenteServiceTest {
 
     @Test
     void testarDeletarIncidente() {
-        when(incidenteJpaRepository.findById(1L)).thenReturn(Optional.of(incidente));
+        String incidenteId = incidente.getId();
+
+        when(incidenteJpaRepository.findById(incidenteId)).thenReturn(Optional.of(incidente));
         doNothing().when(incidenteJpaRepository).delete(incidente);
 
-        incidenteService.deletarIncidente(1L);
-        verify(incidenteJpaRepository, times(1)).delete(incidente);
+        incidenteService.deletarIncidente(incidenteId);
+
+        verify(incidenteJpaRepository, times(1 )).delete(incidente);
     }
 
     @Test
     void testarDeletarIncidenteNaoEncontrado() {
-        when(incidenteJpaRepository.findById(1L)).thenReturn(Optional.empty());
+        String incidenteId = UUID.randomUUID().toString();
 
-        RuntimeException exception = assertThrows(RuntimeException.class, () -> incidenteService.deletarIncidente(1L));
-        assertEquals("Incidente não encontrado com o ID: 1", exception.getMessage());
+        when(incidenteJpaRepository.findById(incidenteId)).thenReturn(Optional.empty());
+
+        RuntimeException exception = assertThrows(RuntimeException.class, ()
+                -> incidenteService.deletarIncidente(incidenteId));
+        assertEquals("Incidente não encontrado com o ID: "
+                + incidenteId, exception.getMessage());
 
         verify(incidenteJpaRepository, times(0)).delete(any(Incidente.class));
     }

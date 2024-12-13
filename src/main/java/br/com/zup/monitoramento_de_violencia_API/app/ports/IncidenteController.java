@@ -46,9 +46,9 @@ public class IncidenteController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteIncidenteById(@PathVariable Long id) {
+    public ResponseEntity<?> deleteIncidenteById(@PathVariable String id) {
         try {
-            incidenteService.deletarIncidente(id);
+            incidenteService.deletarIncidente(String.valueOf(id));
             return ResponseEntity.status(204).body("Incidente deletado com sucesso");
         } catch (Exception e) {
             return ResponseEntity.status(404).body("Incidente não encontrado com o ID fornecido");
