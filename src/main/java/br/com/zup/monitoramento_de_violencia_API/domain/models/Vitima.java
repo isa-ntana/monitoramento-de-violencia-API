@@ -12,7 +12,7 @@ public class Vitima {
     private String religiao;
     private List<Incidente> incidentes;
 
-    public Vitima( String nome, int idade, String genero, String raca, String religiao) {
+    public Vitima(String nome, String vitimaEntityNome, String genero, String raca, String religiao) {
         this.id = UUID.randomUUID().toString();
         this.nome = nome;
         this.idade = idade;

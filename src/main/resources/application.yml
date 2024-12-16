@@ -10,4 +10,7 @@ spring:
     hibernate:
       ddl-auto: update
       dialect: org.hibernate.dialect.PostgreSQLDialect
+      transaction:
+        jta:
+          platform: org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform
     show-sql: true

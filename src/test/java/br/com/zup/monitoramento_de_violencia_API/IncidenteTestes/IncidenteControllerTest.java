@@ -1,5 +1,6 @@
 package br.com.zup.monitoramento_de_violencia_API.IncidenteTestes;
 
+import br.com.zup.monitoramento_de_violencia_API.app.modelsapp.VitimaEntity;
 import br.com.zup.monitoramento_de_violencia_API.app.ports.IncidenteController;
 import br.com.zup.monitoramento_de_violencia_API.domain.models.Incidente;
 import br.com.zup.monitoramento_de_violencia_API.domain.models.Vitima;
@@ -30,10 +31,11 @@ public class IncidenteControllerTest {
 
     @BeforeEach
     void setUp() {
+        VitimaEntity vitimaEntity = new VitimaEntity();
         Vitima vitima = new Vitima(
                 "Maria Oliveira",
-                25,
-                "Feminino",
+                vitimaEntity.getNome(),
+                "Feminine",
                 "Negra",
                 "Evangélica");
         incidente = new Incidente(

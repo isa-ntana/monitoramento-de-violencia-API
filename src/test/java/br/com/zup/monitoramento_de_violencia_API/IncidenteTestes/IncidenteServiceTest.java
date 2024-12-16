@@ -31,11 +31,12 @@ public class IncidenteServiceTest {
 
         vitima = new Vitima(
                 "Maria Oliveira",
-                25,
+                "teste",
                 "feminino",
                 "negra",
                 "SP"
         );
+
 
         incidente = new Incidente(
 
